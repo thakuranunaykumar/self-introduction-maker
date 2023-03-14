@@ -72,7 +72,7 @@ input[type="text"]{
     padding: 10px;
 }
 
-#place,#collegename{
+#placename,#collegename{
 width: 100%;
     background-color: #fff;
     border: 2px solid #ccc;
