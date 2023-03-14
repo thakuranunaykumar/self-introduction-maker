@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="style.css" rel="stylesheet">
+   
+    
+</head>
+<body>
+  <nav>
+    <div class="logo">Self-Introduction Maker</div>
+  </nav>
+    <div class="container">
+        <form>
+        <h1 align="center">Introduction Form</h1>
+        <label>Name</label><br>
+        <input type="text" placeholder="FirstName" id="first">&nbsp;&nbsp;       
+        <input type="text" placeholder="MiddleName" id="second">&nbsp;&nbsp;
+        <input type="text" placeholder="LastName"  id="third">&nbsp;&nbsp;
+    
+        <br>
+        
+        
+            <label>City</label> <br>
+            <input type="text" placeholder="city_name" id="placename">
+<br>
+<br>
+
+        <label>E-mail</label>&nbsp;&nbsp;<input type="email" placeholder="emailid@gmail.com" id="">
+        <br>
+        <br>
+        <label>DOB</label>&nbsp;&nbsp;
+        <input type="date" placeholder="DateofBirth">
+        <br>
+        <br>
+        <label>Gender:</label>
+        <fieldset>
+
+        <label>Male</label> 
+        <input type="radio" placeholder="male" name="gender" >&nbsp;&nbsp;
+
+        <label>Female</label>
+        <input type="radio" placeholder="female" name="gender" >
+
+        </fieldset>
+        <br>
+        <br>
+        <label>Favourite Colour</label>&nbsp;&nbsp;
+        <input type="color">
+        <br>
+        <br>
+        <label>Highest Qualification</label>&nbsp;&nbsp;
+        <select id="Qualification">
+            <option>B.Tech</option>
+            <option>B.E</option>
+            <option>BSc</option>
+            <option>BCA</option>
+        </select><br>
+        <br>
+        <label>University</label> <br>
+            <input type="text" placeholder="University/College_name" id="collegename">
+        
+        <label>Hobbies</label><br>
+        <fieldset>
+        Coding &nbsp; <input type="checkbox" value="Coding" id="hobby1"> &nbsp;&nbsp;&nbsp;
+
+        Sports&nbsp; <input type="checkbox" value="Sports" id="hobby2"> &nbsp;&nbsp;&nbsp;
+        
+        Watching Movies&nbsp; <input type="checkbox" value="Watching Movies" id="hobby3"> &nbsp;&nbsp;&nbsp;
+        </fieldset>
+        <br>
+        <br>
+        
+        <label>Skills</label>
+        <br>
+        <fieldset>
+        Html &nbsp; <input type="checkbox" value="HTML" id="skill1">&nbsp;&nbsp;&nbsp;  
+
+        CSS &nbsp; <input type="checkbox" value="CSS" id="skill2"> &nbsp;&nbsp;&nbsp;
+
+        JAVASCRIPT &nbsp; <input type="checkbox" value="JAVASCRIPT" id="skill3"> &nbsp;&nbsp;&nbsp;
+
+        </fieldset>
+        <br>
+        <br>
+        <textarea placeholder="Describe about yourself"></textarea>
+        <br>
+        <br>
+        <input type="reset" value="RESET">&nbsp;&nbsp;
+        <input type="button" value="SUBMIT" onclick="test()">
+    
+        </form>
+    </div>
+    <div class="container-fluid">
+    <h1 align="center">SELF-INTRODUCTION</h1><br>
+
+    <h2>Introduction Builder has build your SELF-INTRODUCTION. Have a look at it</h2><br>
+
+    <p> Hi! My name is <span id="txt1"></span> <span id="txt2"></span> <span id="txt3"></span>. I am from <span id="txt4"></span>. </p>
+    <p> I have pursued <span id="txt5"></span> from <span id="txt6"></span>. </p>
+    <p> My Technical Skills are <span id="output1"></span>. </p>
+    <p> My short-term goal is to get a job in a reputed company. </p>
+    <p> My long-term goal is to get a good position in a reputed company. </p>
+    <p> My hobby is <span id="output"></span>. </p>
+    </div>
+    
+
+       
+    
+    <script>
+        function test(){
+
+        
+            document.getElementById('txt1').innerHTML=document.getElementById('first').value;
+            document.getElementById('txt2').innerHTML=document.getElementById('second').value;
+            document.getElementById('txt3').innerHTML=document.getElementById('third').value;
+            document.getElementById('txt4').innerHTML=document.getElementById('placename').value;
+            document.getElementById('txt5').innerHTML=document.getElementById('Qualification').value;
+            document.getElementById('txt6').innerHTML=document.getElementById('collegename').value;
+            //document.getElementById('txt7').innerHTML=document.getElementById('collegename').value;
+            
+
+            //Hobbies
+
+            var coding=document.getElementById('hobby1');
+            var sports=document.getElementById('hobby2');
+            var movies=document.getElementById('hobby3');
+            var output=document.getElementById('output');
+
+            if(coding.checked && sports.checked){
+              output.innerHTML=coding.value+" and "+sports.value;
+            }
+           else if(sports.checked && movies.checked){
+              output.innerHTML=sports.value+" and "+movies.value;
+            }
+           else if(movies.checked && coding.checked){
+              output.innerHTML=movies.value+" and "+coding.value;
+            }
+            else if(coding.checked && sports.checked && movies.checked){
+              output.innerHTML=coding.value+" and "+sports.value+" and "+movies.value;
+            }
+
+           else if(coding.checked){
+                output.innerHTML=coding.value;
+            }
+            else if(sports.checked){
+                output.innerHTML=sports.value;
+            }
+           else if(movies.checked){
+                output.innerHTML=movies.value;
+            }
+
+
+
+            //skills
+
+            var html=document.getElementById('skill1');
+            var css=document.getElementById('skill2');
+            var javascript=document.getElementById('skill3');
+            var output1=document.getElementById('output1');
+
+            if(html.checked && css.checked){
+              output1.innerHTML=html.value+" and"+css.value;
+            }
+           else if(css.checked && javascript.checked){
+              output1.innerHTML=css.value+" and "+javascript.value;
+            }
+           else if(javascript.checked && html.checked){
+              output1.innerHTML=javascript.value+" and "+html.value;
+            }
+            else if(html.checked && css.checked && javascript.checked){
+              output1.innerHTML=html.value+" and "+css.value+" and "+javascript.value;
+            }
+
+           else if(html.checked){
+                output1.innerHTML=html.value;
+            }
+            else if(css.checked){
+                output1.innerHTML=css.value;
+            }
+           else if(javascript.checked){
+                output1.innerHTML=javascript.value;
+            }
+
+        }
+            
+
+
+        
+           </script>
+
+</body>
+</html>
